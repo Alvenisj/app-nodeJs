@@ -91,7 +91,7 @@ let list = async (req, res, next) => {
 }
 
 
-let listClientes = async (req, res, next) => {
+let listCliente = async (req, res, next) => {
     let valor = req.query.valor;
 
     try {
@@ -99,10 +99,10 @@ let listClientes = async (req, res, next) => {
         const data = await models.persona.find({
             $or:[{'nombre': new RegExp(valor, 'i')},
                  {'email': new RegExp(valor, 'i')}],
-                 'tipo_persona':'clientes'
+                 'tipo_persona':'Cliente'
         
         }, {createAt:0})
-        .sort({'createAt':-1});
+        .sort({'createAt':-1})
         res.status(200).json(data);
         
     } catch (e) {
@@ -122,7 +122,7 @@ let listClientes = async (req, res, next) => {
 
 
 
-let listProveedores = async (req, res, next) => {
+let listProveedor = async (req, res, next) => {
     let valor = req.query.valor;
 
     try {
@@ -130,10 +130,10 @@ let listProveedores = async (req, res, next) => {
         const data = await models.persona.find({
             $or:[{'nombre': new RegExp(valor, 'i')},
                  {'email': new RegExp(valor, 'i')}],
-                 'tipo_persona':'proveedores'
+                 'tipo_persona':'Proveedor'
         
         }, {createAt:0})
-        .sort({'createAt':-1});
+        .sort({'createAt':-1})
         res.status(200).json(data);
         
     } catch (e) {
@@ -247,8 +247,8 @@ export default {
     add,
     query,
     list,
-    listClientes, 
-    listProveedores,
+    listCliente, 
+    listProveedor,
     update,
     remove,
     activate,
