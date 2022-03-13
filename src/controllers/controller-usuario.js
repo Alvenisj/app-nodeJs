@@ -21,6 +21,7 @@ let add = async (req, res, next) => {
 
         })
 
+        console.log(data);
         res.status(200).json(data);
 
       
@@ -207,7 +208,7 @@ let desactivate = async (req, res, next) => {
 
 let login = async (req, res, next) => {
 
-    const { email, Password} = req.body;
+    const { email, Password } = req.body;
     try {
        let user = await models.usuario.findOne({email: email, estado:1})
        if (user) {

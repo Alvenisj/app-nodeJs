@@ -13,7 +13,7 @@ const app = routerx();
 app.post('/add',[
 check('nombre', '¡El nombre es obligatorio!').not().isEmpty(),
 check('email', '¡El correo no es valido!').isEmail(),
-check('Password', 'El password debe tener más de 5 caracteres').isLength({min:5, max: 16}),
+check('Password', 'El password debe tener más de 5 caracteres').isLength({min:5, max:16}),
 valid.validCampos,
 auth.verifyUserAdmin,
 ], userController.add);

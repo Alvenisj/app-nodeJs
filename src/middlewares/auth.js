@@ -16,7 +16,7 @@ let verifyUser = async (req, res, next) => {
 
     const resp = await tokenServer.decode(req.headers.token)
 
-    if (resp.rol === 'Administrador' || res.rol === 'Vendedor' || res.rol === 'Almacenero' ) {
+    if (resp.rol == 'Administrador' || res.rol == 'Vendedor' || res.rol == 'Almacenero' ) {
         next();        
     } else {
 
